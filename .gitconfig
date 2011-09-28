@@ -1,0 +1,15 @@
+[user]
+	name = Alex Tebbs
+	email = alex@alextebbs.com
+[core]
+	autocrlf = false
+	safecrlf = true
+[alias]
+	co = commit
+	st = status
+	br = branch
+	ck = checkout
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	pom = push origin master
