@@ -13,3 +13,4 @@ set t_Co=256
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 map <c-space> <c-x><c-o>
 set guifont=ProggySquareTT:h12
+set backupdir=~/.vim-tmp,~/tmp,/var/tmp,$HOME/Local\ Settings/Temp
