@@ -16,6 +16,8 @@ set number
 set hidden
 set mouse=a
 
+let NERDTreeIgnore = ['\.pyc$']
+
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 if has ("gui_running")
