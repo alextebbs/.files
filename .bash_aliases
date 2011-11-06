@@ -2,6 +2,7 @@ alias hi='echo Hello, Alex. I tremble before your power. && echo The universe is
 alias sitedir='cd ~/sites/alextebbs.com/www/public_html'
 alias ls='ls -la'
 alias newtricks='vim ~/.bash_aliases'
+alias vimtricks='vim ~/.vimrc'
 alias restartapache='sudo /etc/init.d/apache2 restart'
 alias reloadapache='sudo /etc/init.d/apache2 reload'
 
