@@ -1,4 +1,4 @@
-colorscheme torte
+" MAPPINGS ////////////////////////////////////////////////
 
 map <F1> :previous<CR>
 map <F2> :next<CR>
@@ -16,8 +16,13 @@ set number
 set hidden
 set mouse=a
 
+" PLUGIN STUFF ////////////////////////////////////////////
+
+call pathogen#infect()
 let NERDTreeIgnore = ['\.pyc$']
 
+
+" CSS autocomplete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 if has ("gui_running")
@@ -29,3 +34,9 @@ if has ("gui_running")
 endif
 
 set backupdir=~/.vim-tmp,~/tmp,/var/tmp,$HOME/Local\ Settings/Temp
+
+" Zenburn Settings
+
+let g:zenburn_high_Contrast = 1
+
+colorscheme zenburn
