@@ -35,7 +35,11 @@ set swapfile
 set dir=~/tmp
 set backupdir=~/tmp,/var/tmp,$HOME/Local\ Settings/Temp
 
-colorscheme torte
+if has ("gui_running")
+	colorscheme darkdevel
+	else
+		colorscheme torte
+endif
 
 " MAPPINGS ////////////////////////////////////////////////
 
