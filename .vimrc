@@ -11,17 +11,20 @@ set wildmenu
 set number
 set hidden
 set mouse=a
-set laststatus=2
-set statusline=
-set statusline +=%1*\ %n\ %*            "buffer number
-set statusline +=%5*%{&ff}%*            "file format
-set statusline +=%3*%y%*                "file type
-set statusline +=%4*\ %<%F%*            "full path
-set statusline +=%2*%m%*                "modified flag
-set statusline +=%1*%=%5l%*             "current line
-set statusline +=%2*/%L%*               "total lines
-set statusline +=%1*%4c\ %*             "column number
-set statusline +=%2*0x%04B\ %*          "character under cursor
+
+" STATUSLINE //////////////////////////////////////////////
+
+set statusline=%F       "tail of the filename
+set statusline+=%=      "left/right separator
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=%y      "filetype
+set statusline+=\ Col:%c\      "cursor column
+set statusline+=Line:%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
 
 if has ("gui_running")
 	if has ("gui_gtk2")
@@ -35,11 +38,7 @@ set swapfile
 set dir=~/tmp
 set backupdir=~/tmp,/var/tmp,$HOME/Local\ Settings/Temp
 
-if has ("gui_running")
-	colorscheme darkdevel
-	else
-		colorscheme torte
-endif
+colorscheme molokai
 
 " MAPPINGS ////////////////////////////////////////////////
 
