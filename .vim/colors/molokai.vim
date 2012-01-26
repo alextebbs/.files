@@ -190,7 +190,7 @@ if &t_Co > 255
    hi StatusLineNC    ctermfg=237 ctermbg=253
    hi StorageClass    ctermfg=208
    hi Structure       ctermfg=81
-   hi Tag             ctermfg=161
+   hi Tag             ctermfg=163
    hi Title           ctermfg=166
    hi Todo            ctermfg=231 ctermbg=232   cterm=bold
 
