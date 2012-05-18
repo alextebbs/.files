@@ -9,6 +9,8 @@ set expandtab               " tabs become spaces
 set smarttab                " tabs are smart
 set smartindent
 
+set encoding=utf-8
+
 set t_Co=256
 set ruler                   " always show current position
 set wildmenu                " enable wildmenu
@@ -37,21 +39,13 @@ colorscheme molokai
 
 " STATUSLINE //////////////////////////////////////////////////////////////////
 
-set laststatus=2
-set statusline=%F                                   " tail of the filename
-set statusline+=%=                                  " left/right separator
-set statusline+=[%{strlen(&fenc)?&fenc:'none'},     " file encoding
-set statusline+=%{&ff}]                             " file format
-set statusline+=%h                                  " help file flag
-set statusline+=%m                                  " modified flag
-set statusline+=%r                                  " read only flag
-set statusline+=%y                                  " filetype
-set statusline+=\ Col:%c\                           " cursor column
-set statusline+=Line:%l/%L                          " cursor line/total lines
-set statusline+=\ %P                                " percent through file
+let g:Powerline_symbols = 'fancy'
+
+set laststatus=2                                    " Always show statusline
 
 " MAPPINGS ////////////////////////////////////////////////////////////////////
 
+" Use , as leader key
 let mapleader = ","
 
 " F1 and f2 move through buffers
@@ -66,6 +60,8 @@ map <leader>u :source ~/.vimrc<cr>
 
 " Open NERDTree
 map <leader>n :NERDTreeToggle<cr>
+
+map <leader>k i<CR><ESC>l
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -97,3 +93,5 @@ autocmd FileType css set commentstring=/*\ %s\ */
 
 call pathogen#infect()
 let NERDTreeIgnore = ['\.pyc$']
+
+let g:SuperTabDefaultCompletionType = "context"
