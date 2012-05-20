@@ -51,4 +51,7 @@
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule ".vim/bundle/snipmate-snipppets"]
 	path = .vim/bundle/snipmate-snipppets
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+	url = git://github.com/honza/snipmate-snippets.git
+[submodule ".vim/bundle/tlib_vim"]
+	path = .vim/bundle/tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git
