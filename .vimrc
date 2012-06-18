@@ -8,6 +8,8 @@ set shiftwidth=4            " indenting is done in 4char increments
 set expandtab               " tabs become spaces
 set smarttab                " tabs are smart
 set smartindent
+set scrolljump=5            " jump down 5 lines when cursor hits bottom
+set scrolloff=3             " keep 3 lines below cursor
 
 set encoding=utf-8
 
@@ -16,8 +18,14 @@ set ruler                   " always show current position
 set wildmenu                " enable wildmenu
 set number                  " enable line numbers
 set incsearch               " enable incremental search
+set ignorecase              " ignore case when searching
+set smartcase               " case sensitive when UC is present
+set gdefault                " Makes /g the default when doing a :s
 set hidden                  " change buffer without saving
 set mouse=a                 " mouse support
+set cursorline              " highlight current line
+set pastetoggle=<F12>
+
 syntax on
 
 set textwidth=79            " when wrapping, wrap after 79 chars
@@ -69,6 +77,16 @@ nmap <leader>w :w!<cr>
 " Save protected file if you forgot sudo
 cmap w!! w !sudo dd of=%
 
+" Stupid shift key fixes
+cmap W w 
+cmap WQ wq
+cmap wQ wq
+cmap Q q
+
+" indent from visual mode w/o leaving visual mode
+vnoremap < <gv
+vnoremap > >gv 
+
 " j/k move up and down through wrapped lines in a sane way
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
@@ -89,9 +107,12 @@ autocmd FileType html set commentstring=<!--\ %s\ -->
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType css set commentstring=/*\ %s\ */
 
+au FileType stylus set omnifunc=csscomplete#CompleteCSS
+
 " PLUGIN STUFF ////////////////////////////////////////////////////////////////
 
 call pathogen#infect()
 let NERDTreeIgnore = ['\.pyc$']
 
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
