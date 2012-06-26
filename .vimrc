@@ -10,12 +10,12 @@ set smarttab                " tabs are smart
 set smartindent
 set scrolljump=5            " jump down 5 lines when cursor hits bottom
 set scrolloff=3             " keep 3 lines below cursor
-
-set encoding=utf-8
-
+set encoding=utf-8          " UTF-8, duh
+set backspace=indent,eol,start
+                            " allow backspace over everything
 set t_Co=256
 set ruler                   " always show current position
-set wildmenu                " enable wildmenu
+set wildmenu                " enable something that is awesome
 set number                  " enable line numbers
 set incsearch               " enable incremental search
 set ignorecase              " ignore case when searching
@@ -24,13 +24,16 @@ set gdefault                " Makes /g the default when doing a :s
 set hidden                  " change buffer without saving
 set mouse=a                 " mouse support
 set cursorline              " highlight current line
-set pastetoggle=<F12>
 
-syntax on
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
+syntax on                   " Not sure but I think this turns on syntax?
 
 set textwidth=79            " when wrapping, wrap after 79 chars
 set formatoptions-=t        " but dont automatically wrap
 
+" mostly I run Vim inside Putty or iTerm, so this is useless
 if has ("gui_running")
     if has ("gui_gtk2")
         set guifont=ProggySquareTTSZ\ 12
@@ -40,8 +43,10 @@ if has ("gui_running")
 endif
 
 set swapfile
-set dir=~/tmp
-set backupdir=~/tmp,/var/tmp,$HOME/Local\ Settings/Temp
+set directory=~/tmp/swap/
+
+set backup
+set backupdir=~/tmp/backup/
 
 colorscheme molokai
 
@@ -69,9 +74,13 @@ map <leader>u :source ~/.vimrc<cr>
 " Open NERDTree
 map <leader>n :NERDTreeToggle<cr>
 
+" break lines with <leader>k
 map <leader>k i<CR><ESC>l
 
-" Fast saving
+" toggle that paste
+map <leader>p :set invpaste paste?<CR>
+
+" Fast saving, but my muscles wont use it
 nmap <leader>w :w!<cr>
 
 " Save protected file if you forgot sudo
@@ -112,7 +121,13 @@ au FileType stylus set omnifunc=csscomplete#CompleteCSS
 " PLUGIN STUFF ////////////////////////////////////////////////////////////////
 
 call pathogen#infect()
+
+" NerdTree
 let NERDTreeIgnore = ['\.pyc$']
 
+" SuperTab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+
+" EasyMotion
+let g:EasyMotion_leader_key = '<Leader>'

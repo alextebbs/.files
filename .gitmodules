@@ -58,3 +58,18 @@
 [submodule ".vim/bundle/vim-css3-syntax"]
 	path = .vim/bundle/vim-css3-syntax
 	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule ".vim/bundle/vim-easymotion"]
+	path = .vim/bundle/vim-easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/vim-jade"]
+	path = .vim/bundle/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-nodejs"]
+	path = .vim/bundle/vim-nodejs
+	url = git://github.com/mmalecki/vim-node.js.git
