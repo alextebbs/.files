@@ -95,3 +95,4 @@ fi
 
 mkcd() { mkdir -p "$@" && cd "$_"; }
 
+set -o vi
