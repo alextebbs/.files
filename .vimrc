@@ -131,3 +131,6 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
+
+" CtrlP
+let g:ctrlp_working_path_mode = 2
