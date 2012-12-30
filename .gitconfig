@@ -4,6 +4,7 @@
 [core]
 	autocrlf = false
 	safecrlf = true
+	excludesfile = /Users/brodiac/.gitignore
 [alias]
 	co = commit
 	st = status

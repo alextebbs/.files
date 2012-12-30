@@ -26,7 +26,6 @@ else
     let s:molokai_original = 0
 endif
 
-
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF
@@ -105,25 +104,14 @@ hi Visual                        guibg=#403D3D
 hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
 hi WildMenu        guifg=#66D9EF guibg=#000000
 
-if s:molokai_original == 1
-   hi Normal          guifg=#F8F8F2 guibg=#272822
-   hi Comment         guifg=#75715E
-   hi CursorLine                    guibg=#121212
-   hi CursorColumn                  guibg=#3E3D32
-   hi ColorColumn                   guibg=#3B3A32
-   hi LineNr          guifg=#BCBCBC guibg=#3B3A32
-   hi NonText         guifg=#75715E
-   hi SpecialKey      guifg=#75715E
-else
-   hi Normal          guifg=#F8F8F2 guibg=#111111
-   hi Comment         guifg=#465457
-   hi CursorLine                    guibg=#121212
-   hi CursorColumn                  guibg=#293739
-   hi ColorColumn                   guibg=#232526
-   hi LineNr          guifg=#465457 guibg=#232526
-   hi NonText         guifg=#465457
-   hi SpecialKey      guifg=#465457
-end
+hi Normal          guifg=#F8F8F2 guibg=#000000
+hi Comment         guifg=#465457
+hi CursorLine                    guibg=#111111
+hi CursorColumn                  guibg=#111111
+hi ColorColumn                   guibg=#232526
+hi LineNr          guifg=#333333 guibg=#000000
+hi NonText         guifg=#000000
+hi SpecialKey      guifg=#465457
 
 "
 " Support for 256-color terminal
