@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/brodiac/Dropbox/projects/tarrango/tarrango-web/front/dist'
-let g:netrw_dirhist_2='/Users/brodiac/Dropbox/projects/devplayground/crush-menu'
-let g:netrw_dirhist_3='/Users/brodiac/Dropbox/projects/ee-base/ee-base/public_html/assets/templates'
-let g:netrw_dirhist_4='/Users/brodiac/Dropbox/projects/ee-base/ee-base/public_html/assets/sass'
-let g:netrw_dirhist_5='/Users/brodiac/Dropbox/projects/ee-base/ee-base/public_html/assets/templates'
-let g:netrw_dirhist_6='/Users/brodiac/Dropbox/projects/alextebbs/alextebbs/DB'
+let g:netrw_dirhist_cnt =0

@@ -28,6 +28,7 @@ set clipboard=unnamed           " Use OSX clipboard
 set autoread                    " Reload files updated outside of vim
 set iskeyword-=_                " Makes underscores count as a word
 
+
 " Show tabs and trailing spaces
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
@@ -63,7 +64,7 @@ set undodir=~/tmp/undo/
 set background=dark
 colorscheme molokai
 
-" Tried to use solarized but it was ugly
+" Tried to use solarized but it was fugly
 " let g:solarized_termcolors=256
 " colorscheme solarized
 
@@ -141,7 +142,7 @@ noremap <leader>p :set invpaste paste?<CR>
 " Fast saving, but my muscles wont use it
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>q :wq<cr>
- 
+
 " Save protected file if you forgot sudo
 cnoremap w!! w !sudo dd of=%
 
@@ -165,6 +166,19 @@ noremap <buffer><silent>j gj
 " ghetto way to copy to OSX clipboard through pbcopy,
 " if clipboard support is not available
 vnoremap <leader>c :w !pbcopy<CR><CR>
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <leader>j :call NumberToggle()<cr>
+
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
 
 " ABBREVIATIONS //////////////////////////////////////////////////////////////
 
@@ -198,9 +212,6 @@ augroup CSS
   autocmd Filetype css,sass,scss,stylus,less call SetCSSAutocomplete()
   autocmd FileType css set commentstring=/*\ %s\ */
   autocmd FileType stylus,sass set shiftwidth=2
-
-  " Remove semicolons from sass files before saving
-  autocmd BufWritePre *.sass :%s/;//ge
 augroup END
 
 augroup JADE
