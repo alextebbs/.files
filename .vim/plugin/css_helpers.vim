@@ -19,6 +19,9 @@ function! SetCSSAutocomplete()
   " yes I play too many video games, but also I never have to think about the
   " words 'left, top, bottom, right'. You never mess up left/right, because you
   " just push the key in the right direction, you don't have to think about it.
+  "
+  " This is meant to be used with SASS. Should be easy to convert to SCSS or
+  " another CSS syntax.
 
   " These are characters used by SASS, I want them to be keywords
   set iskeyword+=$,+
@@ -143,12 +146,14 @@ function! SetCSSAutocomplete()
   iab <buffer> wx max-width:
   iab <buffer> wm min-width:
 
+
   " TRANSITIONS
   " ---------------------------------------------
   iab <silent><buffer> tr transition:
   iab <silent><buffer> trp transition-property:
   iab <silent><buffer> trd transition-duration:
   iab <silent><buffer> trf transition-timing-function:
+
 
   " TRANSFORMS
   " ---------------------------------------------
@@ -158,6 +163,7 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> tft transform: translate()<Left><C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> tfx transform: translateX()<Left><C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> tfy transform: translateY()<Left><C-R>=Eatchar('\s')<CR>
+
 
   " BACKGROUND
   " ---------------------------------------------
@@ -169,12 +175,14 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> bgi background-image: url()<Left><C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> bgg background: linear-gradient()<Left><C-R>=Eatchar('\s')<CR>
 
+
   " DISPLAY
   " ---------------------------------------------
   iab <silent><buffer> dx display: none<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> db display: block<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> di display: inline<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> dn display: inline-block<C-R>=Eatchar('\s')<CR>
+
 
   " PSUEDOSELECTORS
   " ---------------------------------------------
@@ -184,6 +192,7 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> fc &:first-child<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> ho &:hover<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> ac &:active, &:focus<C-R>=Eatchar('\s')<CR>
+
 
   " MISC
   " ---------------------------------------------

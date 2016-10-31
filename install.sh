@@ -4,7 +4,7 @@ echo "Symlinking your new awesome dotfiles config"
 echo "This assumes your '.files' directory is in your home directory"
 echo
 
-files=( .vimrc .vim .bashrc .bash_aliases .gitconfig .gitignore )
+files=( .vimrc .vim .bashrc .bash_aliases .gitconfig .gitignore .bash_profile)
 
 for i in "${files[@]}"
 do

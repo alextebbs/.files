@@ -164,6 +164,10 @@ vnoremap > >gv
 noremap <buffer><silent>k gk
 noremap <buffer><silent>j gj
 
+" Move through wrapped lines in a sane way
+noremap j gj
+noremap k gk
+
 " ghetto way to copy to OSX clipboard through pbcopy,
 " if clipboard support is not available
 vnoremap <leader>c :w !pbcopy<CR><CR>
@@ -178,10 +182,8 @@ endfunc
 
 nnoremap <leader>j :call NumberToggle()<cr>
 
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
-
-" ABBREVIATIONS //////////////////////////////////////////////////////////////
+" :au FocusLost * :set number
+" :au FocusGained * :set relativenumber
 
 " FILETYPES ///////////////////////////////////////////////////////////////////
 
@@ -236,6 +238,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'AndrewRadev/switch.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-git'
@@ -284,3 +287,4 @@ let g:switch_custom_definitions =
     \   ['next', 'prev'],
     \   ['margin', 'padding']
     \ ]
+
