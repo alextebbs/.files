@@ -270,3 +270,17 @@ let g:sparkupNextMapping = '<c-x>'
 
 " Airline
 let g:airline_powerline_fonts = 1
+
+" Switch
+let g:switch_mapping = "-"
+
+let g:switch_custom_definitions =
+    \ [
+    \   ['top', 'bottom'],
+    \   ['left', 'right'],
+    \   ['above', 'below'],
+    \   ['before', 'after'],
+    \   ['next', 'prev'],
+    \   ['next', 'prev'],
+    \   ['margin', 'padding']
+    \ ]
