@@ -18,12 +18,10 @@ function! SetCSSAutocomplete()
   " 'max' expands to 'margin-left: 0px'. I use directional keys, because
   " yes I play too many video games, but also I never have to think about the
   " words 'left, top, bottom, right'. You never mess up left/right, because you
-  " just push the key in the right direction, you don' have to think about it..
+  " just push the key in the right direction, you don't have to think about it.
 
   " These are characters used by SASS, I want them to be keywords
   set iskeyword+=$,+
-
-  " These also laugh at you if you do it the slow way :)
 
   " BORDERS
   " ---------------------------------------------
@@ -44,14 +42,6 @@ function! SetCSSAutocomplete()
   iab <buffer> ou outline:
   iab <silent><buffer> oux outline: none<C-R>=Eatchar('\s')<CR>
 
-  " iab <buffer> border: LOL
-  " iab <buffer> border-radius: LOL
-  " iab <buffer> +border-radius( LOL
-  " iab <buffer> border-left: LOL
-  " iab <buffer> border-right: LOL
-  " iab <buffer> border-top: LOL
-  " iab <buffer> border-bottom: LOL
-  " iab <buffer> outline: LOL
 
   " MARGIN
   " ---------------------------------------------
@@ -67,11 +57,6 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> msx margin-bottom: 0px<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> mdx margin-right: 0px<C-R>=Eatchar('\s')<CR>
 
-  " iab <buffer> margin-left: LOL
-  " iab <buffer> margin-right: LOL
-  " iab <buffer> margin-top: LOL
-  " iab <buffer> margin-bottom: LOL
-  " iab <buffer> margin: LOL
 
   " PADDING
   " ---------------------------------------------
@@ -86,11 +71,6 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> psx padding-bottom: 0px<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> pdx padding-right: 0px<C-R>=Eatchar('\s')<CR>
 
-  " iab <buffer> padding: LOL
-  " iab <buffer> padding-right: LOL
-  " iab <buffer> padding-top: LOL
-  " iab <buffer> padding-b: LOL
-  " iab <buffer> padding: LOL
 
   " TEXT
   " ---------------------------------------------
@@ -110,7 +90,6 @@ function! SetCSSAutocomplete()
   iab <buffer> td text-decoration:
   iab <silent><buffer> tdu text-decoration: underline<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> tdx text-decoration: none<C-R>=Eatchar('\s')<CR>
-
 
   iab <buffer> ta text-align:
   iab <silent><buffer> tac text-align: center<C-R>=Eatchar('\s')<CR>
@@ -132,18 +111,6 @@ function! SetCSSAutocomplete()
   iab <buffer> ly list-style:
   iab <silent><buffer> lyx list-style: none<C-R>=Eatchar('\s')<CR>
 
-  " iab <buffer> text-transform: LOL
-  " iab <buffer> text-decoration: LOL
-  " iab <buffer> text-align: LOL
-  " iab <buffer> text-indent: LOL
-  " iab <buffer> +text-shadow( LOL
-  " iab <buffer> letter-spacing: LOL
-  " iab <buffer> font-weight: LOL
-  " iab <buffer> font-style: LOL
-  " iab <buffer> font-size: LOL
-  " iab <buffer> line-height: LOL
-  " iab <buffer> list-style: LOL
-  " iab <buffer> color: LOL
 
   " POSITIONING
   " ---------------------------------------------
@@ -166,13 +133,6 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> vam vertical-align: middle<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> vab vertical-align: baseline<C-R>=Eatchar('\s')<CR>
 
-  " iab <buffer> position: LOL
-  " iab <buffer> z-index: LOL
-  " iab <buffer> left: LOL
-  " iab <buffer> right: LOL
-  " iab <buffer> top: LOL
-  " iab <buffer> bottom: LOL
-  " iab <buffer> vertical-align: LOL
 
   " SIZE
   " ---------------------------------------------
@@ -183,44 +143,38 @@ function! SetCSSAutocomplete()
   iab <buffer> wx max-width:
   iab <buffer> wm min-width:
 
-  " iab <buffer> height: LOL
-  " iab <buffer> max-height: LOL
-  " iab <buffer> min-height: LOL
-  " iab <buffer> width: LOL
-  " iab <buffer> max-width: LOL
-  " iab <buffer> min-width: LOL
-
   " TRANSITIONS
   " ---------------------------------------------
-  iab <silent><buffer> trp +transition-property("")<Left><Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> trd +transition-duration("")<Left><Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> trf +transition-timing-function("")<Left><Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> tr +single-transition()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tr transition:
+  iab <silent><buffer> trp transition-property:
+  iab <silent><buffer> trd transition-duration:
+  iab <silent><buffer> trf transition-timing-function:
 
-  " iab <buffer> +transition-duration(" LOL
-  " iab <buffer> +transition-property(" LOL
-  " iab <buffer> +transition-timing-function(" LOL
-  " iab <buffer> +single-transition(" LOL
+  " TRANSFORMS
+  " ---------------------------------------------
+  iab <silent><buffer> tf transform:
+  iab <silent><buffer> tfs transform: scale()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tfr transform: rotate()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tft transform: translate()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tfx transform: translateX()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tfy transform: translateY()<Left><C-R>=Eatchar('\s')<CR>
 
   " BACKGROUND
   " ---------------------------------------------
-  iab <silent><buffer> bg +background()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> bz +background-size()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> bgg +background(linear-gradient())<Left><Left><C-R>=Eatchar('\s')<CR>
-
-  " iab <buffer> background: LOL
-  " iab <buffer> +background( LOL
-  " iab <buffer> +background-size( LOL
-  " iab <buffer> +background(linear-gradient( LOL
+  iab <silent><buffer> bg background:
+  iab <silent><buffer> bgx background: none<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> bgs background-size:
+  iab <silent><buffer> bgp background-position:
+  iab <silent><buffer> bgc background-color:
+  iab <silent><buffer> bgi background-image: url()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> bgg background: linear-gradient()<Left><C-R>=Eatchar('\s')<CR>
 
   " DISPLAY
   " ---------------------------------------------
   iab <silent><buffer> dx display: none<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> db display: block<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> di display: inline<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> dn +inline-block<C-R>=Eatchar('\s')<CR>
-
-  " iab <buffer> display: LOL
+  iab <silent><buffer> dn display: inline-block<C-R>=Eatchar('\s')<CR>
 
   " PSUEDOSELECTORS
   " ---------------------------------------------
@@ -242,23 +196,13 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> ovh overflow: hidden<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> ovv overflow: visible<C-R>=Eatchar('\s')<CR>
 
-  iab <silent><buffer> sh +box-shadow()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> shx +box-shadow(none)<C-R>=Eatchar('\s')<CR>
+  iab <buffer> sh box-shadow:
+  iab <buffer> shx box-shadow: none<C-R>=Eatchar('\s')<CR>
 
   iab <buffer> cn content:
-  iab <silent><buffer> op +opacity()<Left><C-R>=Eatchar('\s')<CR>
+  iab <buffer> op opacity:
   iab <buffer> cl clear:
   iab <buffer> vi visibility:
   iab <silent><buffer> cf +clearfix<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> re +respond-to()<Left><C-R>=Eatchar('\s')<CR>
-
-  " iab <buffer> opacity: LOL
-  " iab <buffer> content: LOL
-  " iab <buffer> float: LOL
-  " iab <buffer> visibility: LOL
-  " iab <buffer> clear: LOL
-  " iab <buffer> +opacity( LOL
-  " iab <buffer> +box-shadow( LOL
-  " iab <buffer> +respond-to( LOL
 endfunction
 
