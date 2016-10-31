@@ -43,8 +43,9 @@ if has ("gui_running")
     set guioptions-=T
     set guioptions-=r
     set guioptions-=L
-    " Hacked font for use w/ Powerline
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h12
+    set guioptions-=e
+    " Hacked font for use w/ Powerline/Airline
+    set guifont=Inconsolata-g\ for\ Powerline:h11
 endif
 
 " CodeKit is silly and doesn't support swapfiles
@@ -79,7 +80,7 @@ set laststatus=2                                    " Always show statusline
 " - + H L <space> <cr> <bs>
 
 " Use , as leader key
-let mapleader = ","
+let mapleader = " "
 
 " F1 and f2 move through buffers
 noremap <F1> :previous<CR>
@@ -143,7 +144,7 @@ noremap <leader>p :set invpaste paste?<CR>
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>q :wq<cr>
 
-" Save protected file if you forgot sudo
+" Save protected file if you forgot to sudo into it
 cnoremap w!! w !sudo dd of=%
 
 " Stupid shift key fixes
@@ -204,7 +205,7 @@ augroup HTML
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
   autocmd FileType html set commentstring=<!--\ %s\ -->
   autocmd FileType html set formatoptions-=t
-  autocmd FileType html set shiftwidth=4
+  autocmd FileType html set shiftwidth=2
 augroup END
 
 augroup CSS
@@ -221,7 +222,28 @@ augroup END
 
 " PLUGIN STUFF ////////////////////////////////////////////////////////////////
 
-call pathogen#infect()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'AndrewRadev/switch.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-git'
+Plugin 'svermeulen/vim-easyclip'
+Plugin 'gcmt/taboo.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$', '.DS_Store']
@@ -245,3 +267,6 @@ let g:ctrlp_working_path_mode = 2
 
 " Sparkup
 let g:sparkupNextMapping = '<c-x>'
+
+" Airline
+let g:airline_powerline_fonts = 1

@@ -38,12 +38,8 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> bsx border-bottom: none<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> bdx border-right: none<C-R>=Eatchar('\s')<CR>
 
-  iab <silent><buffer> ra +border-radius()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> rax +border-radius(0px)<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> rtl +border-top-left-radius()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> rtr +border-top-right-radius()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> rbl +border-bottom-left-radius()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> rbr +border-bottom-right-radius()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> ra border-radius:
+  iab <silent><buffer> rax border-radius: 0px
 
   iab <buffer> ou outline:
   iab <silent><buffer> oux outline: none<C-R>=Eatchar('\s')<CR>
@@ -122,8 +118,8 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> tal text-align: left<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> taj text-align: justify<C-R>=Eatchar('\s')<CR>
 
-  iab <silent><buffer> ts +text-shadow()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> tsx +text-shadow(none)<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> ts text-shadow:
+  iab <silent><buffer> tsx text-shadow: none<C-R>=Eatchar('\s')<CR>
 
   iab <buffer> fw font-weight:
   iab <silent><buffer> fwb font-weight: bold<C-R>=Eatchar('\s')<CR>
