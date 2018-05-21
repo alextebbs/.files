@@ -3,7 +3,6 @@ function! Eatchar(pat)
   return (c =~ a:pat) ? '' : c
 endfunc
 
-
 function! SetCSSAutocomplete()
 
   " I have never found a type of autocomplete I liked that works with SASS, so
@@ -41,6 +40,7 @@ function! SetCSSAutocomplete()
 
   iab <silent><buffer> ra border-radius:
   iab <silent><buffer> rax border-radius: 0px
+  iab <silent><buffer> ra5 border-radius: 50%
 
   iab <buffer> ou outline:
   iab <silent><buffer> oux outline: none<C-R>=Eatchar('\s')<CR>
@@ -54,11 +54,11 @@ function! SetCSSAutocomplete()
   iab <buffer> ms margin-bottom:
   iab <buffer> md margin-right:
   iab <silent><buffer> xx margin: 0px auto<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> mmx margin: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> mwx margin-top: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> max margin-left: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> msx margin-bottom: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> mdx margin-right: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> mmx margin: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> mwx margin-top: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> max margin-left: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> msx margin-bottom: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> mdx margin-right: 0px<C-R>=Eatchar('\s')<CR>
 
 
   " PADDING
@@ -68,11 +68,11 @@ function! SetCSSAutocomplete()
   iab <buffer> pa padding-left:
   iab <buffer> ps padding-bottom:
   iab <buffer> pd padding-right:
-  iab <silent><buffer> ppx padding: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> pwx padding-top: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> pax padding-left: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> psx padding-bottom: 0px<C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> pdx padding-right: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> ppx padding: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> pwx padding-top: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> pax padding-left: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> psx padding-bottom: 0px<C-R>=Eatchar('\s')<CR>
+  " iab <silent><buffer> pdx padding-right: 0px<C-R>=Eatchar('\s')<CR>
 
 
   " TEXT
@@ -90,9 +90,9 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> ttc text-transform: captalize<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> ttx text-transform: none<C-R>=Eatchar('\s')<CR>
 
-  iab <buffer> td text-decoration:
   iab <silent><buffer> tdu text-decoration: underline<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> tdx text-decoration: none<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tdl text-decoration: line-through<C-R>=Eatchar('\s')<CR>
 
   iab <buffer> ta text-align:
   iab <silent><buffer> tac text-align: center<C-R>=Eatchar('\s')<CR>
@@ -149,10 +149,18 @@ function! SetCSSAutocomplete()
 
   " TRANSITIONS
   " ---------------------------------------------
-  iab <silent><buffer> tr transition:
+  iab <silent><buffer> tra transition:
   iab <silent><buffer> trp transition-property:
   iab <silent><buffer> trd transition-duration:
   iab <silent><buffer> trf transition-timing-function:
+
+
+  " ANIMATIONS
+  " ---------------------------------------------
+  iab <silent><buffer> ani animation:
+  iab <silent><buffer> anid animation-duration:
+  iab <silent><buffer> anii animation-iteration-count:
+  iab <silent><buffer> anif transition-timing-function:
 
 
   " TRANSFORMS
@@ -163,6 +171,9 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> tft transform: translate()<Left><C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> tfx transform: translateX()<Left><C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> tfy transform: translateY()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tfxx transform: translateX(-50%)<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tfyx transform: translateY(-50%)<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> tfxxx transfrom: translate(-50%, -50%)<C-R>=Eatchar('\s')<CR>
 
 
   " BACKGROUND
@@ -172,8 +183,11 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> bgs background-size:
   iab <silent><buffer> bgp background-position:
   iab <silent><buffer> bgc background-color:
+  iab <silent><buffer> bga background-attachment:
+  iab <silent><buffer> bgr background-repeat:
+  iab <silent><buffer> bgrx background-repeat: no-repeat<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> bgi background-image: url()<Left><C-R>=Eatchar('\s')<CR>
-  iab <silent><buffer> bgg background: linear-gradient()<Left><C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> bgg background-image: linear-gradient()<Left><C-R>=Eatchar('\s')<CR>
 
 
   " DISPLAY
@@ -182,6 +196,22 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> db display: block<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> di display: inline<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> dn display: inline-block<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> df display: flex<C-R>=Eatchar('\s')<CR>
+
+
+  " FLEXBOX
+  " ---------------------------------------------
+  iab <silent><buffer> ai align-items:
+  iab <silent><buffer> aic align-items: center<C-R>=Eatchar('\s')<CR>
+
+  iab <silent><buffer> jc justify-content:
+  iab <silent><buffer> jcc justify-content: center<C-R>=Eatchar('\s')<CR>
+
+  iab <silent><buffer> fxd flex-direction:
+  iab <silent><buffer> fxg flex-grow:
+  iab <silent><buffer> fxw flex-wrap:
+  iab <silent><buffer> fww flex-wrap: wrap<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> fwx flex-wrap: nowrap<C-R>=Eatchar('\s')<CR>
 
 
   " PSUEDOSELECTORS
@@ -205,11 +235,20 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> ovh overflow: hidden<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> ovv overflow: visible<C-R>=Eatchar('\s')<CR>
 
+  iab <silent><buffer> pe pointer-events:
+  iab <silent><buffer> pea pointer-events: all<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> pex pointer-events: none<C-R>=Eatchar('\s')<CR>
+
+  iab <silent><buffer> cur cursor:
+  iab <silent><buffer> curp cursor: pointer<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> curd cursor: default<C-R>=Eatchar('\s')<CR>
+
   iab <buffer> sh box-shadow:
   iab <buffer> shx box-shadow: none<C-R>=Eatchar('\s')<CR>
 
   iab <buffer> cn content:
   iab <buffer> op opacity:
+  iab <buffer> fi filter:
   iab <buffer> cl clear:
   iab <buffer> vi visibility:
   iab <silent><buffer> cf +clearfix<C-R>=Eatchar('\s')<CR>

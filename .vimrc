@@ -24,10 +24,19 @@ set gdefault                    " Makes /g the default when doing a :s
 set hidden                      " change buffer without saving
 set mouse=a                     " mouse support
 set cursorline                  " highlight current line
+
+" Only show CursorLine in current window/pane
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter,FocusGained * setlocal cursorline
+  au WinLeave,FocusLost * setlocal nocursorline
+augroup END
+
 set clipboard=unnamed           " Use OSX clipboard
 set autoread                    " Reload files updated outside of vim
 set iskeyword-=_                " Makes underscores count as a word
-
+set splitbelow                  " Splits open below
+set splitright                  " Splits open to the right
 
 " Show tabs and trailing spaces
 set list
@@ -46,28 +55,39 @@ if has ("gui_running")
     set guioptions-=e
     " Hacked font for use w/ Powerline/Airline
     set guifont=Inconsolata-g\ for\ Powerline:h11
+    " set guifont=Operator\ Mono\ for\ Powerline:h11
+    " set guifont=Inconsolata\ Nerd\ Font\ Mono:h13
+    set breakindent
 endif
 
-" CodeKit is silly and doesn't support swapfiles
-set nobackup
-set nowritebackup
 set noswapfile
-
-" set swapfile
 " set directory=~/tmp/swap/
 
-" set backup
+set nobackup
 " set backupdir=~/tmp/backup/
 
 set undofile
 set undodir=~/tmp/undo/
 
-set background=dark
-colorscheme molokai
+set background=light
+colorscheme light
 
-" Tried to use solarized but it was fugly
-" let g:solarized_termcolors=256
-" colorscheme solarized
+if has('gui_running')
+    set background=light
+    colorscheme light
+else
+    set background=dark
+    colorscheme dark
+endif
+
+function! Lights()
+  if g:colors_name == 'dark'
+    colorscheme light
+  else
+    colorscheme dark
+  endif
+endfunc
+
 
 " STATUSLINE /////////////////////////////////////////////////////////////////
 
@@ -79,22 +99,19 @@ set laststatus=2                                    " Always show statusline
 " These are some good keys to remap in normal mode
 " - + H L <space> <cr> <bs>
 
-" Use , as leader key
+" Use space as leader key
 let mapleader = " "
 
 " F1 and f2 move through buffers
 noremap <F1> :previous<CR>
 noremap <F2> :next<CR>
 
-" Cmd-R to 'Refresh' file
-noremap <D-r> :e
-
-" make - do something useful
-noremap - dd
-
 " Much easier
 noremap H 0
 noremap L $
+
+" Switch between the last two files
+nnoremap <leader><leader> <C-^>
 
 " open .vimrc in vertical split
 noremap <leader>v :vsp $MYVIMRC<CR>
@@ -110,26 +127,6 @@ noremap <leader>o cdoC
 
 " Toggle set cursorcolumn
 noremap <leader>\ :set cursorcolumn!<CR>
-
-" Fugitive mappings
-
-" Show status
-noremap <leader>gs :Gstatus<CR>
-
-" Commit some things, start in insert mode
-noremap <leader>gc :Gcommit<CR>i
-
-" Add the current file
-noremap <leader>ga :Git add %<CR>
-
-" Add everything
-noremap <leader>gA :Git add -A<CR>
-
-" Push w/ default settings
-noremap <leader>gp :Git push origin master<CR>
-
-" Pull
-noremap <leader>gu :Git pull<CR>
 
 " New Tab, this is already mapped in macvim
 " map <D-t> :tabnew<CR>
@@ -147,14 +144,11 @@ nnoremap <leader>q :wq<cr>
 " Save protected file if you forgot to sudo into it
 cnoremap w!! w !sudo dd of=%
 
-" Stupid shift key fixes
-cnoremap W w
-cnoremap WQ wq
-cnoremap wQ wq
-cnoremap Q q
-
-" quick shortcut to open help in vsplit
-cnoremap vh vert help
+" Split navigation
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " indent from visual mode w/o leaving visual mode
 vnoremap < <gv
@@ -168,22 +162,39 @@ noremap <buffer><silent>j gj
 noremap j gj
 noremap k gk
 
-" ghetto way to copy to OSX clipboard through pbcopy,
-" if clipboard support is not available
-vnoremap <leader>c :w !pbcopy<CR><CR>
+" Copy/Paste to clipboard
+map <leader>cc "+y
+map <leader>vv "+p
 
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
+" Exit insert mode with `jk`
+inoremap jk <ESC>
 
-nnoremap <leader>j :call NumberToggle()<cr>
+" Some arcane thing to show what syntax group youre in
+map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" Toggle color scheme
+nnoremap <leader>l :call Lights()<cr>
+
+" Map Alt-[h,j,k,l] for resizing a window split
+nnoremap <silent> <leader>h :vertical resize -4<CR>
+nnoremap <silent> <leader>j :resize -4<CR>
+nnoremap <silent> <leader>k :resize +4<CR>
+nnoremap <silent> <leader>l :vertical resize +4<CR>
 
 " :au FocusLost * :set number
 " :au FocusGained * :set relativenumber
+
+" CtrlSF Mappings
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " FILETYPES ///////////////////////////////////////////////////////////////////
 
@@ -232,8 +243,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'hail2u/vim-css3-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'AndrewRadev/switch.vim'
@@ -242,14 +254,52 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-abolish'
 Plugin 'svermeulen/vim-easyclip'
 Plugin 'gcmt/taboo.vim'
+Plugin 'tmhedberg/matchit'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'mattn/emmet-vim'
+Plugin 'matsen/nvim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'ryanoasis/vim-devicons'
+
+" Syntax plugins
+" Plugin 'sheerun/vim-polyglot'
+Plugin 'mxw/vim-jsx'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'hail2u/vim-css3-syntax'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$', '.DS_Store']
+
+function! NERDTreeHighlightFile(extension, fg, bg, guifg)
+  exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guifg='. a:guifg
+  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('html', 202, 'none', '#FC4709')
+call NERDTreeHighlightFile('hbs', 202, 'none', '#FC4709')
+call NERDTreeHighlightFile('jade', 149, 'none', '#A0D24D')
+call NERDTreeHighlightFile('json', 223, 'none', '#FECEA0')
+call NERDTreeHighlightFile('scss', 44, 'none', '#1AD0CE')
+call NERDTreeHighlightFile('sass', 44, 'none', '#1AD0CE')
+call NERDTreeHighlightFile('css', 44, 'none', '#1AD0CE')
+call NERDTreeHighlightFile('js', 226, 'none', '#FFFF0D')
+call NERDTreeHighlightFile('rb', 197, 'none', '#E53378')
+call NERDTreeHighlightFile('md', 208, 'none', '#FD720A')
+call NERDTreeHighlightFile('php', 140, 'none', '#9E6FCD')
+call NERDTreeHighlightFile('svg', 178, 'none', '#CDA109')
+call NERDTreeHighlightFile('gif', 36, 'none', '#15A274')
+call NERDTreeHighlightFile('jpg', 36, 'none', '#15A274')
+call NERDTreeHighlightFile('png', 36, 'none', '#15A274')
 
 " Open NERDTree at startup if you didn't specify a file
 augroup NERDTree
@@ -262,14 +312,15 @@ augroup END
 " let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
-" EasyMotion
-let g:EasyMotion_leader_key = '<Leader><Leader>'
-
 " CtrlP
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_working_path_mode = 'ra'
 
-" Sparkup
-let g:sparkupNextMapping = '<c-x>'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -284,7 +335,17 @@ let g:switch_custom_definitions =
     \   ['above', 'below'],
     \   ['before', 'after'],
     \   ['next', 'prev'],
-    \   ['next', 'prev'],
-    \   ['margin', 'padding']
+    \   ['margin', 'padding'],
+    \   ['darken', 'lighten'],
+    \   ['black', 'white']
     \ ]
 
+" CtrlSF
+let g:ctrlsf_position = 'right'
+let g:ctrlsf_winsize = '100'
+
+
+let g:WebDevIconsOS = 'Darwin'
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''

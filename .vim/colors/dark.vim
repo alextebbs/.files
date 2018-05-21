@@ -5,7 +5,6 @@
 " Note: Based on the monokai theme for textmate
 " by Wimer Hazenberg and its darker variant 
 " by Hamish Stuart Macpherson
-"
 
 hi clear
 
@@ -18,13 +17,7 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="molokai"
-
-if exists("g:molokai_original")
-    let s:molokai_original = g:molokai_original
-else
-    let s:molokai_original = 0
-endif
+let g:colors_name="dark"
 
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
@@ -36,25 +29,28 @@ hi Cursor          guifg=#FFFFFF guibg=#FF00FF
 hi Debug           guifg=#BCA3A3               gui=bold
 hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
-hi DiffAdd                       guibg=#13354A
+hi DiffAdd         guifg=#00FF00
 hi DiffChange      guifg=#89807D guibg=#4C4745
-hi DiffDelete      guifg=#960050 guibg=#1E0010
+hi DiffDelete      guifg=#FF0000 guibg=#000000
 hi DiffText                      guibg=#4C4745 gui=italic,bold
 
+hi! link diffAdded DiffAdd
+hi! link diffRemoved DiffDelete
+
 hi Directory       guifg=#A6E22E               gui=bold
-hi Error           guifg=#960050 guibg=#1E0010
+hi Error           guifg=#FF0000 guibg=#1E0010
 hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#A6E22E               gui=bold
 hi Float           guifg=#AE81FF
 hi FoldColumn      guifg=#465457 guibg=#000000
 hi Folded          guifg=#465457 guibg=#000000
 hi Function        guifg=#A6E22E
-hi Identifier      guifg=#FD971F
+hi Identifier      guifg=#66D9EF
 hi Ignore          guifg=#808080 guibg=bg
 hi IncSearch       guifg=#C4BE89 guibg=#000000
 
 hi Keyword         guifg=#F92672               gui=bold
-hi Label           guifg=#E6DB74               gui=none
+hi Label           guifg=#2DC37E               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
 hi SpecialKey      guifg=#66D9EF               gui=italic
 
@@ -110,13 +106,14 @@ hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
 hi WildMenu        guifg=#66D9EF guibg=#000000
 
 hi Normal          guifg=#F8F8F2 guibg=#000000
-hi Comment         guifg=#465457
+hi Comment         guifg=#313777
 hi CursorLine                    guibg=#080808
 hi CursorColumn                  guibg=#080808
 hi ColorColumn                   guibg=#232526
 hi LineNr          guifg=#222222 guibg=#000000
 hi NonText         guifg=#000000
 hi SpecialKey      guifg=#465457
+hi NERDTreeDirSlash guifg=#222222
 
 "
 " Support for 256-color terminal
@@ -128,7 +125,7 @@ if &t_Co > 255
    hi String          ctermfg=144
    hi Conditional     ctermfg=161               cterm=bold
    hi Constant        ctermfg=135               cterm=bold
-   hi Cursor          ctermfg=16  ctermbg=253
+   hi Cursor          ctermfg=231  ctermbg=201
    hi Debug           ctermfg=225               cterm=bold
    hi Define          ctermfg=81
    hi Delimiter       ctermfg=241
@@ -191,18 +188,21 @@ if &t_Co > 255
    hi Type            ctermfg=81                cterm=none
    hi Underlined      ctermfg=244               cterm=underline
 
-   hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
-   hi VisualNOS                   ctermbg=238
-   hi Visual                      ctermbg=235
+   hi VertSplit       ctermfg=232 ctermbg=232   cterm=bold
+   hi VisualNOS       ctermfg=232 ctermbg=238
+   hi Visual          ctermfg=232 ctermbg=226
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
-   hi Normal          ctermfg=252 ctermbg=232
+   hi Normal          ctermfg=252 ctermbg=16
    hi Comment         ctermfg=59
-   hi CursorLine                  ctermbg=233   cterm=none
-   hi CursorColumn                ctermbg=234
+   hi CursorLine                  ctermbg=17   cterm=none
+   hi CursorColumn                ctermbg=17
    hi ColorColumn                 ctermbg=234
    hi LineNr          ctermfg=237 ctermbg=232
-   hi NonText         ctermfg=59
+   hi NonText         ctermfg=232
    hi SpecialKey      ctermfg=59
 end
+
+let g:airline_theme='powerlineish'
+
