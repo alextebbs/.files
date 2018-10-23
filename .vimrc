@@ -4,7 +4,7 @@ set nocompatible
 
 set autoindent                  " autoindent!
 set tabstop=2                   " tabs are 2 chars
-set shiftwidth=4                " indenting is done in 2char increments
+set shiftwidth=2                " indenting is done in 2char increments
 set expandtab                   " tabs become spaces
 set smarttab                    " tabs are smart
 set smartindent                 " indenting is smart
@@ -24,6 +24,7 @@ set gdefault                    " Makes /g the default when doing a :s
 set hidden                      " change buffer without saving
 set mouse=a                     " mouse support
 set cursorline                  " highlight current line
+set breakindent                 " Better wrapping
 
 " Only show CursorLine in current window/pane
 augroup CursorLine
@@ -57,8 +58,8 @@ if has ("gui_running")
     set guifont=Inconsolata-g\ for\ Powerline:h11
     " set guifont=Operator\ Mono\ for\ Powerline:h11
     " set guifont=Inconsolata\ Nerd\ Font\ Mono:h13
-    set breakindent
 endif
+
 
 set noswapfile
 " set directory=~/tmp/swap/
@@ -88,6 +89,8 @@ function! Lights()
   endif
 endfunc
 
+" Automatically change vim working directory to path of current file.
+" autocmd BufEnter * silent! lcd %:p:h
 
 " STATUSLINE /////////////////////////////////////////////////////////////////
 
@@ -123,7 +126,7 @@ noremap <leader>u :source $MYVIMRC<CR>
 noremap <leader>n :NERDTreeToggle<CR>
 
 " Nerdtree is so laaaaame
-noremap <leader>o cdoC
+" noremap <leader>o cdoC
 
 " Toggle set cursorcolumn
 noremap <leader>\ :set cursorcolumn!<CR>
@@ -170,18 +173,21 @@ map <leader>vv "+p
 inoremap jk <ESC>
 
 " Some arcane thing to show what syntax group youre in
-map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+" \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+" \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Toggle color scheme
-nnoremap <leader>l :call Lights()<cr>
+" nnoremap <leader>l :call Lights()<cr>
 
 " Map Alt-[h,j,k,l] for resizing a window split
 nnoremap <silent> <leader>h :vertical resize -4<CR>
 nnoremap <silent> <leader>j :resize -4<CR>
 nnoremap <silent> <leader>k :resize +4<CR>
 nnoremap <silent> <leader>l :vertical resize +4<CR>
+
+" Set working directory to the current file
+nnoremap <leader>cd :cd %:p:h<CR>
 
 " :au FocusLost * :set number
 " :au FocusGained * :set relativenumber
@@ -195,6 +201,27 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+" FZF
+noremap <leader>f :GFiles<CR>
+
+" Easymotion
+" let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+" nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+" nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+" let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
 
 " FILETYPES ///////////////////////////////////////////////////////////////////
 
@@ -225,7 +252,7 @@ augroup CSS
   autocmd!
   autocmd Filetype css,sass,scss,stylus,less call SetCSSAutocomplete()
   autocmd FileType css set commentstring=/*\ %s\ */
-  autocmd FileType stylus,sass set shiftwidth=2
+  autocmd FileType stylus,sass,css set shiftwidth=2
 augroup END
 
 augroup JADE
@@ -233,49 +260,58 @@ augroup JADE
   autocmd FileType jade set shiftwidth=2
 augroup END
 
+au BufRead,BufNewFile *.inc set filetype=html
+
 " PLUGIN STUFF ////////////////////////////////////////////////////////////////
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" vim-plug is cool now i guess
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'AndrewRadev/switch.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-abolish'
-Plugin 'svermeulen/vim-easyclip'
-Plugin 'gcmt/taboo.vim'
-Plugin 'tmhedberg/matchit'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'mattn/emmet-vim'
-Plugin 'matsen/nvim-colors-solarized'
-Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'ryanoasis/vim-devicons'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'AndrewRadev/switch.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-abolish'
+Plug 'svermeulen/vim-easyclip'
+Plug 'easymotion/vim-easymotion'
+Plug 'gcmt/taboo.vim'
+Plug 'tmhedberg/matchit'
+Plug 'dyng/ctrlsf.vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
+Plug 'matsen/nvim-colors-solarized'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Plug 'ryanoasis/vim-devicons'
+
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 
 " Syntax plugins
-" Plugin 'sheerun/vim-polyglot'
-Plugin 'mxw/vim-jsx'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'hail2u/vim-css3-syntax'
+" Plug 'sheerun/vim-polyglot'
+Plug 'mxw/vim-jsx'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'elzr/vim-json'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$', '.DS_Store']
@@ -344,6 +380,8 @@ let g:switch_custom_definitions =
 let g:ctrlsf_position = 'right'
 let g:ctrlsf_winsize = '100'
 
+" Emmet
+let g:user_emmet_leader_key='<C-E>'
 
 let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_conceal_nerdtree_brackets = 1

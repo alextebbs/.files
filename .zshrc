@@ -112,3 +112,5 @@ export CLICOLOR=1
 export TERM=xterm-256color
 
 source ~/.files/msg.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

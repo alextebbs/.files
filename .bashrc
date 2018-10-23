@@ -99,3 +99,5 @@ set -o vi
 
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
