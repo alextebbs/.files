@@ -173,9 +173,9 @@ map <leader>vv "+p
 inoremap jk <ESC>
 
 " Some arcane thing to show what syntax group youre in
-" map <leader>s :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-" \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-" \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <leader>S :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Toggle color scheme
 " nnoremap <leader>l :call Lights()<cr>
@@ -315,6 +315,9 @@ call plug#end()
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$', '.DS_Store']
+let NERDTreeMinimalUI = 1
+let NERDTreeCascadeSingleChildDir = 0
+let NERDTreeCascadeOpenSingleChildDir = 1
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg)
   exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guifg='. a:guifg
