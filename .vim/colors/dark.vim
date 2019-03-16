@@ -196,6 +196,7 @@ if &t_Co > 255
    hi WildMenu        ctermfg=81  ctermbg=16
 
    hi Normal          ctermfg=252 ctermbg=16
+   hi htmlItalic          ctermfg=252 ctermbg=16
    hi Comment         ctermfg=59
    hi CursorLine                  ctermbg=17   cterm=none
    hi CursorColumn                ctermbg=17

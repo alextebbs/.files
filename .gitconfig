@@ -3,7 +3,7 @@
 	email = alex@alextebbs.com
 [core]
 	autocrlf = false
-	safecrlf = true
+	safecrlf = false
 	excludesfile = /Users/brodiac/.gitignore
 	editor = vim
 [alias]
