@@ -89,6 +89,16 @@ function! Lights()
   endif
 endfunc
 
+command! Lights call Lights()
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+command! TrimWhitespace call TrimWhitespace()
+
 " Automatically change vim working directory to path of current file.
 " autocmd BufEnter * silent! lcd %:p:h
 
