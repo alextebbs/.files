@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/eas/.oh-my-zsh
+export ZSH=/Users/brodiac/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias p='cd ~/Projects'
 alias ls='ls -laG'
+alias vim='nvim'
 # alias gco='git commit'
 # alias ga='git add'
 # alias gu='git pull'

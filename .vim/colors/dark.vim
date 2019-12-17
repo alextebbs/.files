@@ -110,7 +110,7 @@ hi Normal          guifg=#F8F8F2 guibg=#000000
 hi Comment         guifg=#313777
 hi CursorLine                    guibg=#080808
 hi CursorColumn                  guibg=#080808
-hi ColorColumn                   guibg=#232526
+hi ColorColumn                   guibg=#ff00ff
 hi LineNr          guifg=#222222 guibg=#000000
 hi NonText         guifg=#000000
 hi SpecialKey      guifg=#465457
@@ -200,11 +200,16 @@ if &t_Co > 255
    hi Comment         ctermfg=59
    hi CursorLine                  ctermbg=17   cterm=none
    hi CursorColumn                ctermbg=17
-   hi ColorColumn                 ctermbg=234
+   hi ColorColumn                 ctermbg=232
    hi LineNr          ctermfg=237 ctermbg=232
    hi NonText         ctermfg=232
    hi SpecialKey      ctermfg=59
    hi htmlLink        ctermfg=39 cterm=underline
+
+    " Tabs
+    hi TabLineFill     ctermfg=39 ctermbg=16 cterm=bold
+    hi TabLineSel      ctermfg=39 ctermbg=232 cterm=bold
+    hi TabLine         ctermfg=59 ctermbg=16 cterm=bold
 end
 
 let g:airline_theme='powerlineish'

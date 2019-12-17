@@ -208,6 +208,8 @@ function! SetCSSAutocomplete()
   iab <silent><buffer> jcc justify-content: center<C-R>=Eatchar('\s')<CR>
 
   iab <silent><buffer> fxd flex-direction:
+  iab <silent><buffer> fdc flex-direction: column<C-R>=Eatchar('\s')<CR>
+  iab <silent><buffer> fdr flex-direction: row<C-R>=Eatchar('\s')<CR>
   iab <silent><buffer> fxg flex-grow:
   iab <silent><buffer> fxw flex-wrap:
   iab <silent><buffer> fww flex-wrap: wrap<C-R>=Eatchar('\s')<CR>
