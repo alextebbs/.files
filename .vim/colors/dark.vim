@@ -76,7 +76,7 @@ hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672               gui=bold
 hi Search          guifg=#FFFFFF guibg=#455354
 " marks column
-hi SignColumn      guifg=#A6E22E guibg=#232526
+hi SignColumn      guifg=#A6E22E guibg=#000000
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
@@ -108,9 +108,9 @@ hi WildMenu        guifg=#66D9EF guibg=#000000
 
 hi Normal          guifg=#F8F8F2 guibg=#000000
 hi Comment         guifg=#313777
-hi CursorLine                    guibg=#080808
+hi CursorLine                    guibg=#12105E
 hi CursorColumn                  guibg=#080808
-hi ColorColumn                   guibg=#ff00ff
+hi ColorColumn                   guibg=#080808
 hi LineNr          guifg=#222222 guibg=#000000
 hi NonText         guifg=#000000
 hi SpecialKey      guifg=#465457
@@ -159,8 +159,8 @@ if &t_Co > 255
    hi Operator        ctermfg=161
 
    " complete menu
-   hi Pmenu           ctermfg=81  ctermbg=16
-   hi PmenuSel                    ctermbg=244
+   hi Pmenu          ctermfg=226 ctermbg=234
+   hi PmenuSel       ctermfg=232 ctermbg=226
    hi PmenuSbar                   ctermbg=232
    hi PmenuThumb      ctermfg=81
 
@@ -171,7 +171,7 @@ if &t_Co > 255
    hi Search          ctermfg=253 ctermbg=66
 
    " marks column
-   hi SignColumn      ctermfg=118 ctermbg=235
+   hi SignColumn      ctermfg=118 ctermbg=232
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
    hi Special         ctermfg=81  ctermbg=232
@@ -210,6 +210,7 @@ if &t_Co > 255
     hi TabLineFill     ctermfg=39 ctermbg=16 cterm=bold
     hi TabLineSel      ctermfg=39 ctermbg=232 cterm=bold
     hi TabLine         ctermfg=59 ctermbg=16 cterm=bold
+
 end
 
 let g:airline_theme='powerlineish'
