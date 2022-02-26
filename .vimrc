@@ -37,6 +37,7 @@ set colorcolumn=80                            " highlight 80th thing
 set clipboard=unnamed                         " Use OSX clipboard
 set autoread                                  " Reload files updated outside of vim
 set iskeyword-=_                              " Makes underscores count as a word
+set iskeyword-=-                              " Makes hyphens count as a word
 set splitbelow                                " Splits open below
 set splitright                                " Splits open to the right
 set list                                      " Show tabs and trailing spaces
@@ -190,26 +191,7 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-" Easymotion
-" let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-" nmap s <Plug>(easymotion-overwin-f)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-" nmap s <Plug>(easymotion-overwin-f2)
-
-" Turn on case insensitive feature
-" let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
-
-" map <leader>m <Plug>(easymotion-bd-w)
-
+nnoremap <silent> <leader>s :%s/\s\+$//e<CR>
 
 " -----------------------------------------------------------------------------
 " FILETYPES / AUTOCMDS
@@ -250,7 +232,7 @@ augroup JADE
   autocmd FileType jade set shiftwidth=2
 augroup END
 
-au BufRead,BufNewFile *.inc set filetype=html
+au BufRead,BufNewFile *.inc set filetype=php
 
 
 " -----------------------------------------------------------------------------
@@ -287,10 +269,11 @@ Plug 'mattn/emmet-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-easy-align'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
-
-Plug 'morhetz/gruvbox'
+Plug 'phaazon/hop.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Syntax plugins
 Plug 'sheerun/vim-polyglot'
@@ -418,9 +401,15 @@ function! s:show_documentation()
   endif
 endfunction
 
-
+" Sneak
 let g:sneak#label = 1
 let g:sneak#s_next = 1
 
 nmap s <Plug>Sneak_s
 nmap S <Plug>Sneak_S
+
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
