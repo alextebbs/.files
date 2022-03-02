@@ -1,7 +1,0 @@
-#!/bin/bash
-
-ALIASNAME=$1
-ALIASCOMMAND=$2
-
-echo "alias $ALIASNAME='$ALIASCOMMAND'" >> ~/.bash_aliases
-source ~/.bash_aliases
