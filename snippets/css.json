@@ -1,0 +1,641 @@
+{
+	// Place your snippets for css here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"padding:": {
+		"prefix": ["pp"],
+		"body": ["padding: "],
+		"description": "Set padding"
+	},
+	"padding-top:": {
+		"prefix": ["pw"],
+		"body": ["padding-top: "],
+		"description": "Set top padding"
+	},
+	"padding-bottom:": {
+		"prefix": ["ps"],
+		"body": ["padding-bottom: "],
+		"description": "Set bottom padding"
+	},
+	"padding-left:": {
+		"prefix": ["pa"],
+		"body": ["padding-left: "],
+		"description": "Set left padding"
+	},
+	"padding-right": {
+		"prefix": ["pd"],
+		"body": ["padding-right: "],
+		"description": "Set right padding"
+	},
+	"padding: 0px;": {
+		"prefix": ["ppx"],
+		"body": ["padding: 0px;\n"],
+		"description": "Reset padding"
+	},
+	"padding-top: 0px;": {
+		"prefix": ["pwx"],
+		"body": ["padding-top: 0px;\n"],
+		"description": "Reset top padding"
+	},
+	"padding-bottom: 0px;": {
+		"prefix": ["psx"],
+		"body": ["padding-bottom: 0px;\n"],
+		"description": "Reset bottom padding"
+	},
+	"padding-left: 0px;": {
+		"prefix": ["pax"],
+		"body": ["padding-left: 0px;\n"],
+		"description": "Reset left padding"
+	},
+	"padding-right: 0px;": {
+		"prefix": ["pdx"],
+		"body": ["padding-right: 0px;\n"],
+		"description": "Reset right padding"
+	},
+
+	"margin:": {
+		"prefix": ["mm"],
+		"body": ["margin: "],
+		"description": "Set margin"
+	},
+	"margin-top:": {
+		"prefix": ["mw"],
+		"body": ["margin-top: "],
+		"description": "Set top margin"
+	},
+	"margin-bottom:": {
+		"prefix": ["ms"],
+		"body": ["margin-bottom: "],
+		"description": "Set bottom margin"
+	},
+	"margin-left:": {
+		"prefix": ["ma"],
+		"body": ["margin-left: "],
+		"description": "Set left margin"
+	},
+	"margin-right": {
+		"prefix": ["md"],
+		"body": ["margin-right: "],
+		"description": "Set right margin"
+	},
+	"margin: 0px;": {
+		"prefix": ["mmx"],
+		"body": ["margin: 0px;\n"],
+		"description": "Reset margin"
+	},
+	"margin-top: 0px;": {
+		"prefix": ["mwx"],
+		"body": ["margin-top: 0px;\n"],
+		"description": "Reset top margin"
+	},
+	"margin-bottom: 0px;": {
+		"prefix": ["msx"],
+		"body": ["margin-bottom: 0px;\n"],
+		"description": "Reset bottom margin"
+	},
+	"margin-left: 0px;": {
+		"prefix": ["max"],
+		"body": ["margin-left: 0px;\n"],
+		"description": "Reset left margin"
+	},
+	"margin-right: 0px;": {
+		"prefix": ["mdx"],
+		"body": ["margin-right: 0px;\n"],
+		"description": "Reset right margin"
+	},
+
+	"border: 1px solid": {
+		"prefix": ["bb"],
+		"body": ["border: 1px solid "],
+		"description": "Set border"
+	},
+	"border-top: 1px solid": {
+		"prefix": ["bw"],
+		"body": ["border-top: 1px solid "],
+		"description": "Set top border"
+	},
+	"border-bottom: 1px solid": {
+		"prefix": ["bs"],
+		"body": ["border-bottom: 1px solid "],
+		"description": "Set bottom border"
+	},
+	"border-left: 1px solid": {
+		"prefix": ["ba"],
+		"body": ["border-left: 1px solid "],
+		"description": "Set left border"
+	},
+	"border-right: 1px solid": {
+		"prefix": ["bd"],
+		"body": ["border-right: 1px solid "],
+		"description": "Set right border"
+	},
+	"border: none;": {
+		"prefix": ["bbx"],
+		"body": ["border: none;\n"],
+		"description": "Reset border"
+	},
+	"border-top: none;": {
+		"prefix": ["bwx"],
+		"body": ["border-top: none;\n"],
+		"description": "Reset top border"
+	},
+	"border-bottom: none;": {
+		"prefix": ["bsx"],
+		"body": ["border-bottom: none;\n"],
+		"description": "Reset bottom border"
+	},
+	"border-left: none;": {
+		"prefix": ["bax"],
+		"body": ["border-left: none;\n"],
+		"description": "Reset left border"
+	},
+	"border-right: none;": {
+		"prefix": ["rax"],
+		"body": ["border-right: none;\n"],
+		"description": "Reset right border"
+	},
+
+	"border-radius:": {
+		"prefix": ["ra"],
+		"body": ["border-radius: "],
+		"description": "Set border radius"
+	},
+	"border-radius: none;": {
+		"prefix": ["bdx"],
+		"body": ["border-radius: 0px;\n"],
+		"description": "Reset border radius"
+	},
+
+	"text-align:": {
+		"prefix": ["ta"],
+		"body": ["text-align: ${1|left,right,center,justify|}"],
+		"description": "Set text alignment"
+	},
+	"text-align: center": {
+		"prefix": ["tac"],
+		"body": ["text-align: center;\n"],
+		"description": "Set text alignment to center"
+	},
+	"text-align: left;": {
+		"prefix": ["tal"],
+		"body": ["text-align: left;\n"],
+		"description": "Set text alignment to left"
+	},
+	"text-align: right;": {
+		"prefix": ["tar"],
+		"body": ["text-align: right;\n"],
+		"description": "Set text alignment to right"
+	},
+	"text-align: justify;": {
+		"prefix": ["taj"],
+		"body": ["text-align: justify;\n"],
+		"description": "Set text alignment to justify"
+	},
+
+	"text-transform:": {
+		"prefix": ["tt"],
+		"body": ["text-transform: ${1|uppercase,lowercase,capitalize,none|}"],
+		"description": "Set text transformation"
+	},
+	"text-transform: uppercase": {
+		"prefix": ["ttu"],
+		"body": ["text-transform: uppercase;\n"],
+		"description": "Set text transformation to uppercase"
+	},
+	"text-transform: lowercase;": {
+		"prefix": ["ttl"],
+		"body": ["text-transform: lowercase;\n"],
+		"description": "Set text transformation to lowercase"
+	},
+	"text-transform: capitalize;": {
+		"prefix": ["ttl"],
+		"body": ["text-transform: capitalize;\n"],
+		"description": "Set text transformation to capitalize"
+	},
+	"text-transform: none;": {
+		"prefix": ["ttx"],
+		"body": ["text-transform: none;\n"],
+		"description": "Set text transformation to none"
+	},
+  
+	"letter-spacing:": {
+		"prefix": ["ls"],
+		"body": ["letter-spacing: "],
+		"description": "Set letter spacing"
+	},
+
+	"font-family:": {
+		"prefix": ["ff"],
+		"body": ["font-family: "],
+		"description": "Set font family"
+	},
+
+	"line-height:": {
+		"prefix": ["lh"],
+		"body": ["line-height: "],
+		"description": "Set line height"
+	},
+
+	"color:": {
+		"prefix": ["co"],
+		"body": ["color: "],
+		"description": "Set color"
+	},
+
+	"font-size:": {
+		"prefix": ["fs"],
+		"body": ["font-size: "],
+		"description": "Set font size"
+	},
+
+	"font-weight:": {
+		"prefix": ["fw"],
+		"body": ["font-weight: "],
+		"description": "Set font weight"
+	},
+
+	"font-weight: bold;": {
+		"prefix": ["fwb"],
+		"body": ["font-weight: bold;\n"],
+		"description": "Set font weight to bold"
+	},
+
+	"font-weight: normal;": {
+		"prefix": ["fwn"],
+		"body": ["font-weight: normal;\n"],
+		"description": "Set font weight to normal"
+	},
+
+	"text-shadow:": {
+		"prefix": ["ts"],
+		"body": ["text-shadow: "],
+		"description": "Set text shadow"
+	},
+
+	"text-shadow: none;": {
+		"prefix": ["tsx"],
+		"body": ["text-shadow: none;\n"],
+		"description": "Reset text shadow"
+	},
+
+	"font-style: italic;": {
+		"prefix": ["fsi"],
+		"body": ["font-style: italic"],
+		"description": "Set font style to italics"
+	},
+
+	"font-style: normal;": {
+		"prefix": ["fsn, fsx"],
+		"body": ["font-style: normal"],
+		"description": "Reset font style"
+	},
+
+	"font-style: oblique;": {
+		"prefix": ["fso"],
+		"body": ["font-style: oblique"],
+		"description": "Set font style to oblique"
+	},
+
+	"list-style:": {
+		"prefix": ["ly"],
+		"body": ["list-style: ${1|none,disc,decimal|}"],
+		"description": "Set list style type"
+	},
+
+	"list-style: none;": {
+		"prefix": ["lyx"],
+		"body": ["list-style: none;\n"],
+		"description": "Reset list style"
+	},
+
+	"position:": {
+		"prefix": ["po"],
+		"body": ["position: ${1|absolute,relative,fixed,sticky,static|}"],
+		"description": "Set position"
+	},
+	"position: relative;": {
+		"prefix": ["por"],
+		"body": ["position: relative;\n"],
+		"description": "Set position to relative"
+	},
+	"position: absolute;": {
+		"prefix": ["poa"],
+		"body": ["position: absolute;\n"],
+		"description": "Set position to absolute"
+	},
+	"position: fixed;": {
+		"prefix": ["pof"],
+		"body": ["position: fixed;\n"],
+		"description": "Set position to fixed"
+	},
+	"position: static;": {
+		"prefix": ["pos"],
+		"body": ["position: static;\n"],
+		"description": "Set position to static"
+	},
+
+	"top:": {
+		"prefix": ["ww"],
+		"body": ["top: "],
+		"description": "Set top position"
+	},
+	"bottom:": {
+		"prefix": ["ss"],
+		"body": ["bottom: "],
+		"description": "Set bottom position"
+	},
+	"left:": {
+		"prefix": ["aa"],
+		"body": ["left: "],
+		"description": "Set left position"
+	},
+	"right:": {
+		"prefix": ["dd"],
+		"body": ["right: "],
+		"description": "Set right position"
+	},
+	"top: 0px;": {
+		"prefix": ["wwx"],
+		"body": ["top: 0px;\n"],
+		"description": "Set top position"
+	},
+	"bottom: 0px;": {
+		"prefix": ["ssx"],
+		"body": ["bottom: 0px;\n"],
+		"description": "Set bottom position"
+	},
+	"left: 0px": {
+		"prefix": ["aax"],
+		"body": ["left: 0px;\n"],
+		"description": "Reset left position"
+	},
+	"right: 0px": {
+		"prefix": ["ddx"],
+		"body": ["right: 0px;\n"],
+		"description": "Reset right position"
+	},
+
+	"z-index:": {
+		"prefix": ["zi"],
+		"body": ["z-index: "],
+		"description": "Set Z-index"
+	},
+
+	"vertical-align": {
+		"prefix": ["va"],
+		"body": ["vertical-align: ${1|baseline,middle|}"],
+		"description": "Set vertical alignment"
+	},
+
+	"height:": {
+		"prefix": ["he"],
+		"body": ["height: "],
+		"description": "Set height"
+	},
+	"min-height:": {
+		"prefix": ["hm"],
+		"body": ["min-height: "],
+		"description": "Set minimum height"
+	},
+	"max-height:": {
+		"prefix": ["hx"],
+		"body": ["max-height: "],
+		"description": "Set maximum height"
+	},
+
+	"width:": {
+		"prefix": ["wi"],
+		"body": ["width: "],
+		"description": "Set width"
+	},
+	"min-width:": {
+		"prefix": ["wm"],
+		"body": ["min-width: "],
+		"description": "Set minimum width"
+	},
+	"max-width:": {
+		"prefix": ["wx"],
+		"body": ["max-width: "],
+		"description": "Set maximum width"
+	},
+
+	"transition:": {
+		"prefix": ["tra"],
+		"body": ["transition: "],
+		"description": "Set transition"
+	},
+
+	"animation:": {
+		"prefix": ["ani"],
+		"body": ["animation: "],
+		"description": "Set animation"
+	},
+
+	"transform:": {
+		"prefix": ["tf"],
+		"body": ["transform: "],
+		"description": "Set transform"
+	},
+
+	"background:": {
+		"prefix": ["bg"],
+		"body": ["background: "],
+		"description": "Set background"
+	},
+	"background: none": {
+		"prefix": ["bgx"],
+		"body": ["background: none;\n"],
+		"description": "Reset background"
+	},
+	"background-size:": {
+		"prefix": ["bgs"],
+		"body": ["background-size: "],
+		"description": "Set background size"
+	},
+	"background-position:": {
+		"prefix": ["bgp"],
+		"body": ["background-position: "],
+		"description": "Set background position"
+	},
+	"background-repeat:": {
+		"prefix": ["bgr"],
+		"body": ["background-repeat: ${1|repeat,no-repeat|}"],
+		"description": "Set background repeat"
+	},
+	"background-image:": {
+		"prefix": ["bgi"],
+		"body": ["background-image: url(${1});"],
+		"description": "Set background image"
+	},
+	"background-image: linear-gradient();": {
+		"prefix": ["bgg"],
+		"body": ["background-image: linear-gradient(${1});"],
+		"description": "Set background gradient"
+	},
+
+	"display:": {
+		"prefix": ["di"],
+		"body": ["display: ${1|none,block,inline,inline-block,grid,flex|}"],
+		"description": "Set display"
+	},
+
+	"display: none;": {
+		"prefix": ["dx"],
+		"body": ["display: none;\n"],
+		"description": "Set display to none"
+	},
+	"display: block;": {
+		"prefix": ["db"],
+		"body": ["display: block;\n"],
+		"description": "Set display to block"
+	},
+	"display: inline;": {
+		"prefix": ["di"],
+		"body": ["display: inline;\n"],
+		"description": "Set display to inline"
+	},
+	"display: inline-block;": {
+		"prefix": ["di"],
+		"body": ["display: inline-block;\n"],
+		"description": "Set display to inline-block"
+	},
+	"display: flex;": {
+		"prefix": ["df"],
+		"body": ["display: flex;\n"],
+		"description": "Set display to flex"
+	},
+	"display: grid;": {
+		"prefix": ["dg"],
+		"body": ["display: grid;\n"],
+		"description": "Set display to grid"
+	},
+
+	"align-items:": {
+		"prefix": ["ai"],
+		"body": ["align-items: ${1|center,stretch,baseline,flex-start,flex-end|}"],
+		"description": "Set flex item alignment"
+	},
+	"align-items: center;": {
+		"prefix": ["aic"],
+		"body": ["align-items: center;\n"],
+		"description": "Set flex item alignment to center"
+	},
+	"align-content:": {
+		"prefix": ["ac"],
+		"body": ["align-content: ${1|flex-start,flex-end,center,space-between,space-around,stretch|}"],
+		"description": "Set flex content alignment"
+	},
+	"justify-content:": {
+		"prefix": ["jc"],
+		"body": ["justify-content: ${1|flex-start,flex-end,center,space-between,space-around,space-evenly|}"],
+		"description": "Set flex content justification"
+	},
+	"justify-content: center;": {
+		"prefix": ["jcc"],
+		"body": ["justify-content: center;\n"],
+		"description": "Set flex content justification to center"
+	},
+	"flex-wrap: wrap;": {
+		"prefix": ["fww"],
+		"body": ["flex-wrap: wrap;\n"],
+		"description": "Set flex wrapping on"
+	},
+	"flex-wrap: nowrap;": {
+		"prefix": ["fwx"],
+		"body": ["flex-wrap: nowrap;\n"],
+		"description": "Set flex wrapping off"
+	},
+	"flex-direction:": {
+		"prefix": ["fd"],
+		"body": ["flex-direction: ${1|column,row,column-reverse,row-reverse|}"],
+		"description": "Set flex direction"
+	},
+
+	"float: left;": {
+		"prefix": ["fl"],
+		"body": ["float: left;\n"],
+		"description": "Set float to left"
+	},
+	"float: right;": {
+		"prefix": ["fr"],
+		"body": ["float: right;\n"],
+		"description": "Set float to right"
+	},
+	"float: none;": {
+		"prefix": ["fx"],
+		"body": ["float: none;\n"],
+		"description": "Reset float"
+	},
+
+	"overflow:": {
+		"prefix": ["ov"],
+		"body": ["overflow: ${1|hidden,visible,auto,scroll,clip|}"],
+		"description": "Set overflow to hidden"
+	},
+	"overflow: hidden;": {
+		"prefix": ["ovh"],
+		"body": ["overflow: hidden;\n"],
+		"description": "Set overflow to hidden"
+	},
+	"overflow: visible;": {
+		"prefix": ["ovv"],
+		"body": ["overflow: visible;\n"],
+		"description": "Set overflow to visible"
+	},
+	"overflow: auto;": {
+		"prefix": ["ova"],
+		"body": ["overflow: auto;\n"],
+		"description": "Set overflow to auto"
+	},
+
+	"box-shadow:": {
+		"prefix": ["sh"],
+		"body": ["box-shadow: "],
+		"description": "Set box shadow"
+	},
+	"box-shadow: none;": {
+		"prefix": ["shx"],
+		"body": ["box-shadow: none;\n"],
+		"description": "Reset box shadow"
+	},
+
+	"content:": {
+		"prefix": ["cn"],
+		"body": ["content: "],
+		"description": "Set content"
+	},
+	"content: '';": {
+		"prefix": ["cnx"],
+		"body": ["content: '';"],
+		"description": "Set content to empty string"
+	},
+
+	"opacity:": {
+		"prefix": ["op"],
+		"body": ["opacity: "],
+		"description": "Set opacity"
+	},
+
+	"filter:": {
+		"prefix": ["fi"],
+		"body": ["filter: "],
+		"description": "Set filter"
+	},
+
+	"visibility:": {
+		"prefix": ["vi"],
+		"body": ["visibility: ${1|hidden,visible,collapse|}"],
+		"description": "Set filter"
+	},
+}

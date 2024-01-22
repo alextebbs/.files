@@ -102,3 +102,4 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /Users/eas/perl5/perlbrew/etc/bashrc
+. "$HOME/.cargo/env"
