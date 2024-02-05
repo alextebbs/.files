@@ -1,0 +1,203 @@
+:root {
+  --tab-height: 26px;
+  --font-size-tab-title: 13px;
+  --font-family: "Iosevka";
+}
+
+.monaco-workbench {
+  --brodiac-background: var(--vscode-editor-background);
+  --brodiac-foreground: var(--vscode-editor-foreground);
+  --brodiac-hover-bg: rgba(0, 0, 0, 0.1);
+  --brodiac-accent-2: #ffcc00;
+
+  --brodiac-opacity-10: color-mix(
+    in srgb,
+    var(--brodiac-foreground) 10%,
+    transparent
+  );
+
+  --brodiac-opacity-20: color-mix(
+    in srgb,
+    var(--brodiac-foreground) 10%,
+    transparent
+  );
+
+  --vscode-list-inactiveSelectionBackground: var(--brodiac-opacity-10);
+  --vscode-list-hoverBackground: var(--brodiac-opacity-10);
+
+  --quickInputBorder: var(--brodiac-accent-1);
+  --vscode-quickInput-background: var(--brodiac-background);
+}
+
+.monaco-workbench .codicon[class*="codicon-"] {
+  font-size: 16px !important;
+}
+
+* {
+  font-size: 13px !important;
+  font-family: var(--font-family);
+}
+
+.extensions-viewlet > .header {
+  padding: 0px !important;
+}
+
+.extensions-viewlet > .header .suggest-input-container {
+  padding: 4px 12px !important;
+  border-radius: none !important;
+  border: none !important;
+  border-bottom: 1px solid var(--vscode-input-border) !important;
+}
+
+/* .monaco-workbench
+  .part.statusbar
+  > .items-container
+  > .statusbar-item[id^="design4pro"] {
+  order: -1;
+  color: #ff0;
+  text-transform: uppercase;
+  background: #111;
+  padding-left: 12px;
+  padding-right: 12px;
+} */
+
+.monaco-workbench
+  .part.statusbar
+  > .items-container
+  > .statusbar-item[aria-label^="sync"] {
+  display: none;
+}
+
+.monaco-workbench .editor-instance .xterm,
+.monaco-workbench .pane-body.integrated-terminal .xterm {
+  top: 0px;
+}
+
+.title.title-border-bottom {
+  border-bottom: 1px solid #222;
+}
+
+.part.sidebar.left .title-actions {
+  display: none;
+}
+
+.part.sidebar.left .composite.title {
+  border-bottom: 1px solid var(--brodiac-opacity-20);
+}
+
+.part.statusbar.status-border-top {
+  border-top: 1px solid var(--brodiac-opacity-10);
+}
+
+.title.title-border-bottom {
+  border-bottom: none;
+}
+
+.statusbar-item[aria-label="-- NORMAL --"] {
+  color: var(--vscode-terminal-ansiBrightBlue);
+  background: var(--brodiac-background);
+}
+
+.statusbar-item[aria-label="-- INSERT --"] {
+  color: var(--vscode-terminal-ansiBrightGreen);
+  background: var(--brodiac-background);
+}
+
+.statusbar-item[aria-label="-- VISUAL --"] {
+  color: var(--vscode-terminal-ansiBrightMagenta);
+  background: var(--brodiac-background);
+}
+
+.statusbar-item[aria-label="-- REPLACE --"] {
+  color: var(--vscode-terminal-ansiBrightRed);
+  background: var(--brodiac-background);
+}
+
+.statusbar-item[aria-label="-- VISUAL LINE --"] {
+  color: #000;
+  background: var(--vscode-terminal-ansiBrightPurple);
+}
+
+.monaco-workbench
+  .part.editor
+  > .content
+  .editor-group-container
+  > .title.breadcrumbs
+  .breadcrumbs-control
+  .monaco-breadcrumb-item
+  .codicon[class*="codicon-symbol-"] {
+  display: none;
+}
+
+.statusbar-item[id="vscodevim.vim.primary"][aria-label^=":"] {
+  color: #f0f;
+  background: var(--brodiac-background);
+}
+
+h2[title^="Explorer"] {
+  position: relative;
+  left: -69px;
+  color: #f00 !important;
+}
+
+h2[title^="Explorer"]:after {
+  content: " //";
+}
+
+.settings-editor
+  > .settings-header
+  > .search-container
+  > .settings-count-widget {
+  border: none !important;
+  margin: 4px 0;
+}
+
+.monaco-select-box,
+.monaco-inputbox,
+.monaco-custom-toggle,
+.monaco-workbench .notifications-list-container .notification-list-item,
+.monaco-button,
+.suggest-input-container,
+.setting-item-contents {
+  border-radius: 6px;
+}
+
+.monaco-button,
+.suggest-input-container {
+  padding: 4px 12px !important;
+}
+
+.quick-input-widget {
+  border-color: var(--brodiac-accent-1) !important;
+  border-width: 2px !important;
+  border-radius: 6px;
+  background: var(--brodiac-background);
+}
+
+.quick-input-header {
+  border-bottom: 2px solid var(--brodiac-accent-1) !important;
+  margin-bottom: 5px;
+}
+
+.quick-input-widget {
+  top: 120px !important;
+  z-index: 9999 !important;
+}
+
+.quick-input-widget * {
+  outline: none !important;
+}
+
+.quick-input-header {
+  padding: 0px !important;
+}
+
+.quick-input-header .monaco-inputbox {
+  border: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.quick-input-header .monaco-inputbox .input {
+  padding: 8px 12px;
+}
